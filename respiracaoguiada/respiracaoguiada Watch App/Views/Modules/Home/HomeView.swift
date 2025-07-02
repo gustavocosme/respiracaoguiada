@@ -14,17 +14,10 @@ struct HomeView: View {
         
         LazyVStack(spacing: 16.0) {
             
-            MenuItemView(title: "Espírito",
-                         icon: "figure.mind.and.body",
-                         timer: "1 MIN")
-            
-            MenuItemView(title: "Refletir",
-                         icon: "aqi.medium",
-                         timer: "1 MIN")
-            
-            MenuItemView(title: "Respirar",
-                         icon: "wind",
-                         timer: "1 MIN")
+            MenuItemView(menuData: MenuData(section: .spirit))
+            MenuItemView(menuData: MenuData(section: .reflect))
+            MenuItemView(menuData: MenuData(section: .breathe))
+
         }
         .padding()
     }

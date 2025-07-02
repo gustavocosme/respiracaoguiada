@@ -46,6 +46,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		8273D6692E15943F00CD6997 /* Model */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8277CFB52E15428500E3DC93 /* Managers */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Managers;
@@ -89,6 +94,7 @@
 		8277CFB12E15427800E3DC93 /* respiracaoguiada Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				8273D6692E15943F00CD6997 /* Model */,
 				8277CFB92E1542DB00E3DC93 /* Theme */,
 				8277CFB62E1542AE00E3DC93 /* Views */,
 				8277CFB52E15428500E3DC93 /* Managers */,
@@ -157,6 +163,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				8273D6692E15943F00CD6997 /* Model */,
 				8277CFB52E15428500E3DC93 /* Managers */,
 				8277CFB62E1542AE00E3DC93 /* Views */,
 				8277CFB92E1542DB00E3DC93 /* Theme */,

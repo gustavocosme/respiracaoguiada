@@ -9,9 +9,7 @@ import SwiftUI
 
 struct MenuItemView: View {
     
-    var title: String
-    var icon: String
-    var timer: String
+    var menuData: MenuData
     
     @State var isInfo: Bool = false
     
@@ -21,7 +19,7 @@ struct MenuItemView: View {
         VStack(alignment: .leading,
                spacing: 2) {
             
-            Image(systemName: self.icon)
+            Image(systemName: self.menuData.icon)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 26.0, height: 26.0)
@@ -29,10 +27,10 @@ struct MenuItemView: View {
                 .padding(.bottom, 6)
                 .foregroundColor(Theme.Colors.projectColorLight)
         
-            Text(self.title)
+            Text(self.menuData.title)
                 .bold()
             
-            Text(self.timer)
+            Text("1 MIN")
                 .font(.footnote)
                 .foregroundColor(Theme.Colors.projectColorLight)
         }
@@ -88,8 +86,5 @@ struct MenuItemView: View {
 }
 
 #Preview {
-    MenuItemView(title: "Espirito",
-                 icon: "aqi.medium",
-                 timer: "1 MIN",
-                 isInfo: false)
+    MenuItemView(menuData: MenuData(section: .spirit))
 }

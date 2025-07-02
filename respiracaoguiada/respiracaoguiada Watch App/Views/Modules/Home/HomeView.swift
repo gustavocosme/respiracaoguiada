@@ -7,30 +7,34 @@
 
 import SwiftUI
 
-
 struct HomeView: View {
+    
+    @ViewBuilder
+    var menuView: some View {
+        
+        LazyVStack {
+            
+            MenuItemView(title: "Espírito",
+                         icon: "figure.mind.and.body",
+                         timer: "Aberto")
+            
+            MenuItemView(title: "Refletir",
+                         icon: "aqi.medium",
+                         timer: "1 MIN")
+            
+            MenuItemView(title: "Respirar",
+                         icon: "wind",
+                         timer: "1 MIN")
+        }
+        .padding()
+    }
     
     var body: some View {
         
         NavigationStack {
             
             ScrollView {
-        
-                LazyVStack {
-                    
-                    MenuItemView(title: "Espírito",
-                                 icon: "figure.mind.and.body",
-                                 timer: "Aberto")
-                    
-                    MenuItemView(title: "Refletir",
-                                 icon: "aqi.medium",
-                                 timer: "1 MIN")
-                    
-                    MenuItemView(title: "Respirar",
-                                 icon: "wind",
-                                 timer: "1 MIN")
-                }
-                .padding()
+                menuView
             }
             .navigationTitle("Respiração Guiada")
             .navigationBarTitleDisplayMode(.automatic)

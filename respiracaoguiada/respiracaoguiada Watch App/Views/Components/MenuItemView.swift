@@ -15,55 +15,68 @@ struct MenuItemView: View {
     
     @State var isInfo: Bool = false
     
+    @ViewBuilder
+    var leftView: some View {
+        
+        VStack(alignment: .leading,
+               spacing: 2) {
+            
+            Image(systemName: self.icon)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 26.0, height: 26.0)
+                .padding(.horizontal, 2)
+                .padding(.bottom, 6)
+        
+            Text(self.title)
+                .bold()
+            
+            Text(self.timer)
+                .font(.footnote)
+
+        }
+        .padding(16)
+    }
+
+    @ViewBuilder
+    var rightView: some View {
+        
+        VStack {
+
+            Button(action: {
+                
+                self.isInfo = true
+                
+            }) {
+                Image(systemName: "ellipsis.circle.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 22.0, height: 22.0)
+                                .foregroundStyle(.white.opacity(0.8))
+            }
+            .buttonStyle(.plain)
+            .padding(8)
+            Spacer()
+        }
+    }
+    
     var body: some View {
         
         NavigationLink(destination: MindInfoView()) {
             
             HStack {
                 
-                VStack(alignment: .leading, spacing: 2) {
-                    
-                    Image(systemName: self.icon)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 26.0, height: 26.0)
-                        .padding(.horizontal, 2)
-                        .padding(.bottom, 6)
-                
-                    Text(self.title)
-                        .bold()
-                    
-                    Text(self.timer)
-                        .font(.footnote)
-
-                }
-                .padding(16)
+                leftView
                 
                 Spacer()
                 
-                VStack {
-
-                    Button(action: {
-                        
-                        self.isInfo = true
-                        
-                    }) {
-                        Image(systemName: "ellipsis.circle.fill")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 22.0, height: 22.0)
-                                        .foregroundStyle(.white.opacity(0.8))
-                    }
-                    .buttonStyle(.plain)
-                    .padding(8)
-                    Spacer()
-                }
+                rightView
             }
         }
         .frame(height: 100)
         .buttonStyle(.plain)
         .background(
-            Color.mint.opacity(0.2).clipShape(RoundedRectangle(cornerRadius: 22))
+            Color.greenProject.clipShape(RoundedRectangle(cornerRadius: Float.cornerRadius))
         )
         .glassEffect(in: .rect(cornerRadius: 22.0))
         .fullScreenCover(isPresented: $isInfo,

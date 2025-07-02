@@ -12,11 +12,11 @@ struct HomeView: View {
     @ViewBuilder
     var menuView: some View {
         
-        LazyVStack {
+        LazyVStack(spacing: 16.0) {
             
             MenuItemView(title: "Espírito",
                          icon: "figure.mind.and.body",
-                         timer: "Aberto")
+                         timer: "1 MIN")
             
             MenuItemView(title: "Refletir",
                          icon: "aqi.medium",

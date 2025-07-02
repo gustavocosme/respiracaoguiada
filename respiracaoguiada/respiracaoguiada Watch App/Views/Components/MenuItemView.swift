@@ -27,13 +27,14 @@ struct MenuItemView: View {
                 .frame(width: 26.0, height: 26.0)
                 .padding(.horizontal, 2)
                 .padding(.bottom, 6)
+                .foregroundColor(Theme.Colors.projectColorLight)
         
             Text(self.title)
                 .bold()
             
             Text(self.timer)
                 .font(.footnote)
-
+                .foregroundColor(Theme.Colors.projectColorLight)
         }
         .padding(16)
     }
@@ -52,7 +53,7 @@ struct MenuItemView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 22.0, height: 22.0)
-                                .foregroundStyle(.white.opacity(0.8))
+                                .foregroundStyle(Theme.Colors.projectColorLight)
             }
             .buttonStyle(.plain)
             .padding(8)
@@ -73,12 +74,12 @@ struct MenuItemView: View {
                 rightView
             }
         }
-        .frame(height: 100)
+        .frame(height: Theme.Dimensions.heightMenuItem)
         .buttonStyle(.plain)
         .background(
-            Color.greenProject.clipShape(RoundedRectangle(cornerRadius: Float.cornerRadius))
+            Theme.Colors.projectColor.clipShape(RoundedRectangle(cornerRadius: Theme.Dimensions.cornerRadius))
         )
-        .glassEffect(in: .rect(cornerRadius: 22.0))
+        .glassEffect(in: .rect(cornerRadius: Theme.Dimensions.cornerRadius))
         .fullScreenCover(isPresented: $isInfo,
                          content: {
             Text("OK")

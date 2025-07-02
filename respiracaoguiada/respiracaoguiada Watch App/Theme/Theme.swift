@@ -7,12 +7,15 @@
 
 import SwiftUI
 
-extension Float {
+struct Theme {
     
-    static let cornerRadius = 22.0
-}
-
-extension Color {
+    enum Dimensions {
+        static let cornerRadius = 22.0
+        static let heightMenuItem = 100.0
+    }
     
-    static let greenProject = Color.mint.opacity(0.2)
+    enum Colors {
+        static let projectColor = Color.mint.opacity(0.2)
+        static let projectColorLight = Color.mint.opacity(0.5)
+    }
 }

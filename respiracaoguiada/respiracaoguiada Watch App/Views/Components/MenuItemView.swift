@@ -80,7 +80,7 @@ struct MenuItemView: View {
         .glassEffect(in: .rect(cornerRadius: Theme.Dimensions.cornerRadius))
         .fullScreenCover(isPresented: $isInfo,
                          content: {
-            Text("OK")
+            InfoView(menuData: self.menuData)
         })
     }
 }

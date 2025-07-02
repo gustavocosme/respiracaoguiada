@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct InfoView: View {
+    
+    var menuData: MenuData
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    
+        ScrollView {
+        
+            VStack(alignment: .leading) {
+                
+                Text(menuData.title.uppercased())
+                    .font(.title3)
+                    .padding(.bottom, 4)
+                    .bold()
+                
+                Text(menuData.description)
+                    .foregroundStyle(.white)
+            }
+        }
+        .padding(.horizontal, 16)
     }
 }
 
 #Preview {
-    InfoView()
+    InfoView(menuData: MenuData(section: .reflect))
 }

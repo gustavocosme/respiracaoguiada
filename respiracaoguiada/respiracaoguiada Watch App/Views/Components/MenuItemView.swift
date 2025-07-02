@@ -43,9 +43,9 @@ struct MenuItemView: View {
         VStack {
 
             Button(action: {
-                
+
                 self.isInfo = true
-                
+
             }) {
                 Image(systemName: "ellipsis.circle.fill")
                                 .resizable()
@@ -61,7 +61,7 @@ struct MenuItemView: View {
     
     var body: some View {
         
-        NavigationLink(destination: MindInfoView()) {
+        NavigationLink(destination: MindStartView()) {
             
             HStack {
                 

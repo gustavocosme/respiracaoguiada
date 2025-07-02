@@ -8,11 +8,32 @@
 import SwiftUI
 
 struct MindStartView: View {
+   
+    @Environment(\.dismiss) var dismiss
+    @State private var pageIndex = 2
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        TabView(selection: $pageIndex) {
+            
+            Button("Finalizar"){
+                self.dismiss()
+            }
+            .bold()
+            .glassEffect(.regular.tint(.red).interactive())
+            .padding(.horizontal, 22)
+                .tag(1)
+
+            Text("Animação")
+                .tag(2)
+        }
+        .tabViewStyle(.page)
+        .navigationBarBackButtonHidden()
     }
 }
 
 #Preview {
+    
     MindStartView()
+    
 }

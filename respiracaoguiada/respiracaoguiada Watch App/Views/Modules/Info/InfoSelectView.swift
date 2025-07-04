@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InfoSelectView: View {
     
-    let menuData: MenuData
+    @ObservedObject var menuData: MenuData
     @Environment(\.dismiss) var dismiss
     let timers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     @State var timer: String = ""
@@ -25,7 +25,8 @@ struct InfoSelectView: View {
                     let plural = time == 1 ? "" : "s"
                     let str = "\(time) Minuto\(plural)"
                     Button(str) {
-                        PreferenceManager.shared.setTimer(section: menuData.section, time: time)
+                        self.menuData.updateTimer(to: time)
+                        self.menuData.reloadTimer()
                         
                         timer = str
                         

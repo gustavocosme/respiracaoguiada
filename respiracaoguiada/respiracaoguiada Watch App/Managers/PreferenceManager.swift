@@ -7,13 +7,12 @@
 
 import Foundation
 
+
 final class PreferenceManager {
+    
     
     static let shared = PreferenceManager()
     private let defaults = UserDefaults.standard
-    
-    private init() {}
-    
     
     // MARK: - Generic Setters
     

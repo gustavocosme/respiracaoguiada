@@ -23,7 +23,7 @@ struct MindStartView: View {
             .glassEffect(.regular.tint(.red).interactive())
             .padding(.horizontal, 22)
                 .tag(1)
-
+            
             Text("Animação")
                 .tag(2)
             

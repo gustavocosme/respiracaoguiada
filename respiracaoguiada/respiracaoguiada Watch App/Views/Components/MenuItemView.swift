@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MenuItemView: View {
     
-    var menuData: MenuData
+    @ObservedObject var menuData: MenuData
     
     @State var isInfo: Bool = false
     
@@ -18,7 +18,7 @@ struct MenuItemView: View {
         
         VStack(alignment: .leading,
                spacing: 2) {
-            
+        
             Image(systemName: self.menuData.icon)
                 .resizable()
                 .scaledToFit()
@@ -30,7 +30,7 @@ struct MenuItemView: View {
             Text(self.menuData.title)
                 .bold()
             
-            Text("1 MIN")
+            Text(self.menuData.timerStr)
                 .font(.footnote)
                 .foregroundColor(Theme.Colors.projectColorLight)
         }

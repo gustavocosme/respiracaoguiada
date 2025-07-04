@@ -9,14 +9,18 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @StateObject var spiritData = MenuData(section: .spirit)
+    @StateObject var reflectData = MenuData(section: .reflect)
+    @StateObject var breatheData = MenuData(section: .breathe)
+    
     @ViewBuilder
     var menuView: some View {
         
         LazyVStack(spacing: 16.0) {
     
-            MenuItemView(menuData: MenuData(section: .spirit))
-            MenuItemView(menuData: MenuData(section: .reflect))
-            MenuItemView(menuData: MenuData(section: .breathe))
+            MenuItemView(menuData: spiritData)
+            MenuItemView(menuData: reflectData)
+            MenuItemView(menuData: reflectData)
         }
         .padding()
     }

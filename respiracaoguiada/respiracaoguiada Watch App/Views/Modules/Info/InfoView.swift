@@ -9,8 +9,7 @@ import SwiftUI
 
 struct InfoView: View {
     
-    var menuData: MenuData
-    @State var timer: String = ""
+    @ObservedObject var menuData: MenuData
     
     var body: some View {
        
@@ -21,7 +20,7 @@ struct InfoView: View {
                 VStack(alignment: .leading) {
                     
                     NavigationLink(destination: InfoSelectView(menuData: menuData)) {
-                        Text(timer)
+                        Text(menuData.timerStr)
                     }
                     .buttonStyle(.glass)
                     .padding(.bottom, 16)
@@ -33,9 +32,6 @@ struct InfoView: View {
             .padding(.horizontal, 16)
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle(menuData.title)
-        }
-        .onAppear {
-            self.timer = menuData.timerStr
         }
     }
 }

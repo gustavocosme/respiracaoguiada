@@ -13,11 +13,10 @@ struct HomeView: View {
     var menuView: some View {
         
         LazyVStack(spacing: 16.0) {
-            
+    
             MenuItemView(menuData: MenuData(section: .spirit))
             MenuItemView(menuData: MenuData(section: .reflect))
             MenuItemView(menuData: MenuData(section: .breathe))
-
         }
         .padding()
     }

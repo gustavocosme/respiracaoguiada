@@ -10,23 +10,30 @@ import SwiftUI
 struct InfoView: View {
     
     var menuData: MenuData
-
-    var body: some View {
     
-        ScrollView {
-        
-            VStack(alignment: .leading) {
-                
-                Text(menuData.title.uppercased())
-                    .font(.title3)
-                    .padding(.bottom, 4)
-                    .bold()
-                
-                Text(menuData.description)
-                    .foregroundStyle(.white)
+    var body: some View {
+       
+        NavigationStack {
+            
+            ScrollView {
+            
+                VStack(alignment: .leading) {
+                    
+                    NavigationLink(destination: InfoSelectView(menuData: menuData)) {
+                        
+                       Text("1 MIN")
+                    }
+                    .buttonStyle(.glass)
+                    .padding(.bottom, 16)
+                              
+                    Text(menuData.description)
+                        .foregroundStyle(.white)
+                }
             }
+            .padding(.horizontal, 16)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle(menuData.title)
         }
-        .padding(.horizontal, 16)
     }
 }
 

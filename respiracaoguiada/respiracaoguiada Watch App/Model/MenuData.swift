@@ -9,10 +9,10 @@ import Foundation
 
 struct MenuData {
     
-    enum Section {
-        case spirit
-        case breathe
-        case reflect
+    enum Section: String {
+        case spirit = "spirit"
+        case breathe = "breathe"
+        case reflect = "reflect"
     }
     
     let section: Section
@@ -69,5 +69,17 @@ struct MenuData {
             Na quietude, a alma fala.
             """
         }
+    }
+    
+    var timerInt: Int {
+       return PreferenceManager.shared.getTimer(section: section) ?? 0
+    }
+    
+    var timerStr: String {
+        if timerInt == 0 {
+            return "1 minuto"
+        }
+        
+        return self.timerInt == 1 ? "\(self.timerInt) minuto" : "\(self.timerInt) minutos"
     }
 }

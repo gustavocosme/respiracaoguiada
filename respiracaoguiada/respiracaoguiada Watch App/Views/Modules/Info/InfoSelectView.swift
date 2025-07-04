@@ -12,7 +12,8 @@ struct InfoSelectView: View {
     let menuData: MenuData
     @Environment(\.dismiss) var dismiss
     let timers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    
+    @State var timer: String = ""
+
     var body: some View {
     
         ScrollView {
@@ -22,7 +23,12 @@ struct InfoSelectView: View {
                 ForEach(timers, id: \.self) { time in
 
                     let plural = time == 1 ? "" : "s"
-                    Button("\(time) Minuto\(plural)") {
+                    let str = "\(time) Minuto\(plural)"
+                    Button(str) {
+                        PreferenceManager.shared.setTimer(section: menuData.section, time: time)
+                        
+                        timer = str
+                        
                         dismiss()
                     }
                     .buttonStyle(.glass)

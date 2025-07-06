@@ -15,16 +15,18 @@ class TimerManager: ObservableObject {
 
     private var cancellable: AnyCancellable?
     private let totalSeconds: Int
+    private var onComplete: (() -> Void) = { }
 
-    init(minutes: Int) {
+    init(minutes: Int, onComplete: @escaping (() -> Void)) {
         self.timeRemaining = minutes * 60
         self.totalSeconds = minutes * 60
+        self.onComplete = onComplete
         startTimer()
     }
 
     private func startTimer() {
         cancellable = Timer
-            .publish(every: 1.0, on: .main, in: .common)
+            .publish(every: 0.1, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
                 guard let self = self, self.isRunning else { return }
@@ -33,6 +35,7 @@ class TimerManager: ObservableObject {
                 } else {
                     self.isRunning = false
                     self.cancellable?.cancel()
+                    self.onComplete()
                 }
             }
     }

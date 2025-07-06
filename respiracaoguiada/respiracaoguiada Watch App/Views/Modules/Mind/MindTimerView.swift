@@ -11,12 +11,14 @@ struct MindTimerView: View {
     
     @StateObject private var timerManager: TimerManager
 
-    init(minutes: Int) {
-        _timerManager = StateObject(wrappedValue: TimerManager(minutes: minutes))
+    init(minutes: Int, onComplete: @escaping (() -> Void)) {
+        _timerManager = StateObject(wrappedValue: TimerManager(minutes: minutes,
+                                                               onComplete: onComplete))
     }
 
     var body: some View {
         ZStack {
+            
             Circle()
                 .stroke(lineWidth: 20)
                 .opacity(0.2)
@@ -40,5 +42,5 @@ struct MindTimerView: View {
 }
 
 #Preview {
-    MindTimerView(minutes: 1)
+    MindTimerView(minutes: 1, onComplete: {})
 }

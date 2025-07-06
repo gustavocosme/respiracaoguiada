@@ -27,7 +27,9 @@ struct MindStartView: View {
             Text("Animação")
                 .tag(2)
             
-            MindTimerView(minutes: 1)
+            MindTimerView(minutes: 1, onComplete: {
+                self.dismiss()
+            })
         }
         .tabViewStyle(.page)
         .navigationBarBackButtonHidden()

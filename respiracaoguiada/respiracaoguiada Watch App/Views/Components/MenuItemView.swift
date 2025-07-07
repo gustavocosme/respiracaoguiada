@@ -61,7 +61,7 @@ struct MenuItemView: View {
     
     var body: some View {
         
-        NavigationLink(destination: MindStartView()) {
+        NavigationLink(destination: MindStartView(menuData: self.menuData)) {
             
             HStack {
                 

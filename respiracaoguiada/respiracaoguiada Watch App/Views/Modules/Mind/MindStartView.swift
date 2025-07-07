@@ -11,6 +11,7 @@ struct MindStartView: View {
    
     @Environment(\.dismiss) var dismiss
     @State private var pageIndex = 2
+    @ObservedObject var menuData: MenuData
 
     var body: some View {
         
@@ -24,8 +25,8 @@ struct MindStartView: View {
             .padding(.horizontal, 22)
                 .tag(1)
             
-            Text("Animação")
-                .tag(2)
+            MindRenderView(menuData: menuData)
+            .tag(2)
             
             MindTimerView(minutes: 1, onComplete: {
                 self.dismiss()
@@ -37,7 +38,5 @@ struct MindStartView: View {
 }
 
 #Preview {
-    
-    MindStartView()
-    
+    MindStartView(menuData: MenuData(section: .reflect))
 }

@@ -20,7 +20,7 @@ struct HomeView: View {
     
             MenuItemView(menuData: spiritData)
             MenuItemView(menuData: reflectData)
-            MenuItemView(menuData: reflectData)
+            MenuItemView(menuData: breatheData)
         }
         .padding()
     }

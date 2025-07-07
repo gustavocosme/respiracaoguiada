@@ -15,7 +15,7 @@ struct MindRenderView: View {
         
         switch menuData.section {
         case .spirit:
-            Text("spirit")
+            BreathingAnimationView()
         case .breathe:
             Text("breathe")
         case .reflect:

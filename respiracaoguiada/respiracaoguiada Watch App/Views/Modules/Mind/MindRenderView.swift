@@ -17,9 +17,9 @@ struct MindRenderView: View {
         case .spirit:
             BreathingAnimationView()
         case .breathe:
-            Text("breathe")
+            BreathingTriangleView()
         case .reflect:
-            Text("reflect")
+            BreathingSquareFlowerView()
         }
     }
 }

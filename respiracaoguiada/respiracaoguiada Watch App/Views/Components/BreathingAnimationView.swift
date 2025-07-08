@@ -17,6 +17,14 @@ struct BreathingAnimationView: View {
 
             Color.black.edgesIgnoringSafeArea(.all)
             
+            VStack {
+                
+                Spacer()
+
+                Text(isAnimating ? "Inspire" : "Expire")
+                    .font(.footnote)
+            }
+            
             ZStack {
                 ForEach(0..<petalCount, id: \.self) { i in
                     Circle()
@@ -37,7 +45,7 @@ struct BreathingAnimationView: View {
             .rotationEffect(.degrees(isAnimating ? 60 : 0))
             .onAppear {
                 withAnimation(Animation.easeInOut(duration: 4).repeatForever(autoreverses: true)) {
-                    self.isAnimating.toggle()
+                    self.isAnimating = true
                 }
             }
         }

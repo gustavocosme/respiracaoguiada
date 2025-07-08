@@ -17,6 +17,14 @@ struct BreathingTriangleView: View {
         ZStack {
         
             Color.black.ignoresSafeArea()
+            
+            VStack {
+                
+                Spacer()
+
+                Text(isAnimating ? "Inspire" : "Expire")
+                    .font(.footnote)
+            }
            
             ZStack {
                 
@@ -36,7 +44,7 @@ struct BreathingTriangleView: View {
                         .blur(radius: isAnimating ? 0 : 8)
                 }
             }
-            .scaleEffect(isAnimating ? 0.5 : 0.2)
+            .scaleEffect(isAnimating ? 0.4 : 0.2)
             .rotationEffect(.degrees(isAnimating ? 190 : 0))
             .onAppear {
                 withAnimation(Animation.easeInOut(duration: 4).repeatForever(autoreverses: true)) {

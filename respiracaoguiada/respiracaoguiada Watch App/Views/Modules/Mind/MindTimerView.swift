@@ -17,27 +17,41 @@ struct MindTimerView: View {
     }
 
     var body: some View {
-        ZStack {
+        
+        VStack(spacing: 26) {
             
-            Circle()
-                .stroke(lineWidth: 20)
-                .opacity(0.2)
-                .foregroundColor(Theme.Colors.projectColorLight)
+            ZStack {
+                
+                Circle()
+                    .stroke(lineWidth: 10)
+                    .opacity(0.2)
+                    .foregroundColor(Theme.Colors.projectColorLight)
 
-            Circle()
-                .trim(from: 0.0, to: timerManager.progress)
-                .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round))
-                .foregroundColor(Theme.Colors.projectColor)
-                .rotationEffect(.degrees(-90))
-                .animation(.linear, value: timerManager.progress)
+                Circle()
+                    .trim(from: 0.0, to: timerManager.progress)
+                    .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round))
+                    .foregroundColor(Theme.Colors.projectColor)
+                    .rotationEffect(.degrees(-90))
+                    .animation(.linear, value: timerManager.progress)
 
-            Text(timerManager.timeString)
-                .font(.title2)
-                .frame(width: 100)
-                .foregroundColor(.white)
-                .bold()
+                Text(timerManager.timeString)
+                    .font(.title3)
+                    .frame(width: 100)
+                    .foregroundColor(.white)
+                    .bold()
+            }
+            .frame(width: 100, height: 100)
+      
+            Button(action: {
+                timerManager.isRunning.toggle()
+            }) {
+                Image(systemName: timerManager.isRunning ? "play.fill" : "pause.fill")
+                      .frame(width: 33.0, height: 33.0)
+                      .glassEffect()
+            }
+            .buttonStyle(.plain)
+            
         }
-        .frame(width: 120, height: 120)
     }
 }
 

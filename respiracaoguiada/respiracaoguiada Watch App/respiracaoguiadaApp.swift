@@ -11,7 +11,7 @@ import SwiftUI
 struct respiracaoguiada_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            HomeV2View()
         }
     }
 }

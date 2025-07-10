@@ -15,22 +15,35 @@ struct MindStartView: View {
 
     var body: some View {
         
-        TabView(selection: $pageIndex) {
+        ZStack {
             
-            Button("Finalizar"){
-                self.dismiss()
+            LinearGradient(
+                gradient: Gradient(colors: [Color.black,
+                                            Color.black,
+                                            Color.black,
+                                            .gray.opacity(0.2)]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
+            
+            TabView(selection: $pageIndex) {
+                
+                Button("Finalizar"){
+                    self.dismiss()
+                }
+                .bold()
+                .glassEffect(.regular.tint(.red).interactive())
+                .padding(.horizontal, 22)
+                    .tag(1)
+                
+                MindRenderView(menuData: menuData)
+                .tag(2)
+                
+                MindTimerView(minutes: 1, onComplete: {
+                    self.dismiss()
+                })
             }
-            .bold()
-            .glassEffect(.regular.tint(.red).interactive())
-            .padding(.horizontal, 22)
-                .tag(1)
-            
-            MindRenderView(menuData: menuData)
-            .tag(2)
-            
-            MindTimerView(minutes: 1, onComplete: {
-                self.dismiss()
-            })
         }
         .tabViewStyle(.page)
         .navigationBarBackButtonHidden()

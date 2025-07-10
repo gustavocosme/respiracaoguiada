@@ -12,7 +12,7 @@ struct MindRenderView: View {
     @ObservedObject var menuData: MenuData
 
     var body: some View {
-        
+    
         switch menuData.section {
         case .spirit:
             BreathingAnimationView()

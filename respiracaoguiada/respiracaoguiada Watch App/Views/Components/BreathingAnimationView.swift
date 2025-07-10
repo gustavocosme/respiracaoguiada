@@ -15,15 +15,13 @@ struct BreathingAnimationView: View {
 
     var body: some View {
         ZStack {
-
-            Color.black.edgesIgnoringSafeArea(.all)
             
             VStack {
                 
                 Spacer()
 
                 Text(isAnimating ? "Inspire" : "Expire")
-                    .font(.footnote)
+                    .font(.caption2)
             }
             
             ZStack {

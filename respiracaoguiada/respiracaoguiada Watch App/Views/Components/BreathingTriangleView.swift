@@ -16,9 +16,7 @@ struct BreathingTriangleView: View {
     var body: some View {
         
         ZStack {
-        
-            Color.black.ignoresSafeArea()
-            
+                    
             VStack {
                 
                 Spacer()

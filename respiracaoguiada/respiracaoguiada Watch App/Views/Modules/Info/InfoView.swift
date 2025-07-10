@@ -27,6 +27,7 @@ struct InfoView: View {
                               
                     Text(menuData.description)
                         .foregroundStyle(.white)
+                        .padding(.bottom, 22)
                 }
             }
             .padding(.horizontal, 16)

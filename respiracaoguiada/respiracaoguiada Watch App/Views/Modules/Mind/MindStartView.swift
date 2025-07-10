@@ -41,7 +41,7 @@ struct MindStartView: View {
                 MindRenderView(menuData: menuData)
                 .tag(2)
                 
-                MindTimerView(minutes: 1, onComplete: {
+                MindTimerView(minutes: menuData.timer, onComplete: {
                     self.dismiss()
                 })
                 

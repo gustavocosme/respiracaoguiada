@@ -26,7 +26,7 @@ class TimerManager: ObservableObject {
 
     private func startTimer() {
         cancellable = Timer
-            .publish(every: 0.1, on: .main, in: .common)
+            .publish(every: 1.0, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
                 guard let self = self, self.isRunning else { return }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WatchKit
 
 struct MindStartView: View {
    
@@ -43,9 +44,11 @@ struct MindStartView: View {
                 MindTimerView(minutes: 1, onComplete: {
                     self.dismiss()
                 })
+                
+                NowPlayingView()
             }
         }
-        .tabViewStyle(.page)
+        .tabViewStyle(.carousel)
         .navigationBarBackButtonHidden()
     }
 }

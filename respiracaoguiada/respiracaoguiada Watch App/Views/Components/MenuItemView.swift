@@ -26,13 +26,16 @@ struct MenuItemView: View {
                 .padding(.horizontal, 2)
                 .padding(.bottom, 6)
                 .foregroundColor(Theme.Colors.projectColorLight)
-        
+                .accessibilityHidden(true)
+
             Text(self.menuData.title)
                 .bold()
-            
+                .accessibilityLabel("Título: \(self.menuData.title)")
+
             Text(self.menuData.timerStr)
                 .font(.footnote)
                 .foregroundColor(Theme.Colors.projectColorLight)
+                .accessibilityLabel("Tempo: \(self.menuData.timerStr)")
         }
         .padding(16)
     }
@@ -57,6 +60,8 @@ struct MenuItemView: View {
             .padding(8)
             Spacer()
         }
+        .accessibilityLabel("Mais informações")
+        .accessibilityHint("Abre a tela de detalhes sobre \(menuData.title)")
     }
     
     var body: some View {

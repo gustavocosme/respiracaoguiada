@@ -18,21 +18,18 @@ struct MenuFullItemView: View {
     var leftView: some View {
         
         VStack(alignment: .leading,
-               spacing: 2) {
+               spacing: 8) {
         
             Image(systemName: self.menuData.icon)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 44.0, height: 44.0)
-                .padding(.horizontal, 2)
+                .frame(width: 56.0, height: 56.0)
                 .foregroundColor(Theme.Colors.projectColorLight)
                 .accessibilityHidden(true)
 
             Text(self.menuData.title)
                 .bold()
                 .accessibilityLabel("Título: \(self.menuData.title)")
-
-            Spacer()
             
             Text(self.menuData.timerStr)
                 .font(.footnote)
@@ -64,6 +61,7 @@ struct MenuFullItemView: View {
         .accessibilityLabel("Mais informações")
         .accessibilityHint("Abre a tela de detalhes sobre \(menuData.title)")
         .padding(.horizontal, 22)
+        .padding(.top, 16)
     }
     
     var body: some View {

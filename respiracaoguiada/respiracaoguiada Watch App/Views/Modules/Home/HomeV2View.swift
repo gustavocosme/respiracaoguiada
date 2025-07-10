@@ -17,9 +17,19 @@ struct HomeV2View: View {
     var menuView: some View {
         
         TabView {
+            
             MenuFullItemView(menuData: spiritData)
             MenuFullItemView(menuData: reflectData)
             MenuFullItemView(menuData: breatheData)
+            
+            VStack(spacing: 16) {
+                
+                NavigationLink("Configurações", destination: SettingsView())
+                    .buttonStyle(.glass)
+                
+                NavigationLink("Sobre", destination: AboutView())
+                    .buttonStyle(.glass)
+            }
         }
         .tabViewStyle(.verticalPage)
     }

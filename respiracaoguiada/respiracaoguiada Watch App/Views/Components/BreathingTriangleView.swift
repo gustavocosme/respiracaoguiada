@@ -11,7 +11,8 @@ struct BreathingTriangleView: View {
     
     @State private var isAnimating = false
     private let triangleCount = 16
-    
+    @StateObject private var hapticManager = HapticManager()
+
     var body: some View {
         
         ZStack {
@@ -49,7 +50,10 @@ struct BreathingTriangleView: View {
             .onAppear {
                 withAnimation(Animation.easeInOut(duration: 4).repeatForever(autoreverses: true)) {
                     self.isAnimating.toggle()
+                    self.hapticManager.start()
                 }
+            }.onDisappear {
+                self.hapticManager.stop()
             }
         }
     }

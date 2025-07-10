@@ -11,6 +11,7 @@ struct BreathingAnimationView: View {
 
     @State private var isAnimating = false
     private let petalCount = 12
+    @StateObject private var hapticManager = HapticManager()
 
     var body: some View {
         ZStack {
@@ -45,8 +46,11 @@ struct BreathingAnimationView: View {
             .rotationEffect(.degrees(isAnimating ? 60 : 0))
             .onAppear {
                 withAnimation(Animation.easeInOut(duration: 4).repeatForever(autoreverses: true)) {
+                    self.hapticManager.start()
                     self.isAnimating = true
                 }
+            }.onDisappear {
+                self.hapticManager.stop()
             }
         }
     }

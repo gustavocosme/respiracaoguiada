@@ -10,6 +10,7 @@ import SwiftUI
 struct BreathingSquareFlowerView: View {
     @State private var isAnimating = false
     private let squareCount = 22
+    @StateObject private var hapticManager = HapticManager()
 
     var body: some View {
         
@@ -50,7 +51,10 @@ struct BreathingSquareFlowerView: View {
             .onAppear {
                 withAnimation(Animation.easeInOut(duration: 4).repeatForever(autoreverses: true)) {
                     self.isAnimating = true
+                    self.hapticManager.start()
                 }
+            }.onDisappear {
+                self.hapticManager.stop()
             }
         }
            

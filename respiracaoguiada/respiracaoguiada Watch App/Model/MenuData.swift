@@ -46,7 +46,8 @@ final class MenuData: ObservableObject {
         case .spirit:
             return """
             Descubra o poder da meditação para o espírito.
-            Silencie o mundo lá fora e ouça a voz que vive dentro de você. A meditação acalma a mente, eleva o espírito e fortalece a conexão com o seu eu interior.
+            Silencie o mundo lá fora e ouça a voz que vive dentro de você. A meditação acalma a mente, eleva o espírito e fortalece a conexão com 
+            o seu eu interior.
             Basta sentar-se em silêncio, focar na respiração e permitir que cada pensamento vá e venha como nuvens no céu.
             Com prática, você encontrará paz, clareza e presença. Meditar é um caminho simples para viver com mais leveza, propósito e alma.
             """
